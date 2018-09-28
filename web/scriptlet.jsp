@@ -5,11 +5,11 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
         <% 
             String alumnos[] = {"Antonio", "Carlos", "Paco", "María"};
-            pageContext.setAttribute("LosAlumnos", alumnos);
+            pageContext.setAttribute("losAlumnos", alumnos);
         %>
 <html>
     <head>
@@ -21,10 +21,8 @@
         <div>
             <h2>Funciona</h2>
         </div>
-        <% 
-            for(String alumno : alumnos){
-                out.print(alumno + "<br>");
-            }
-        %>
+        <c:forEach var = "alumno" items="${losAlumnos}">
+            ${alumno} <br>
+        </c:forEach>
     </body>
 </html>
